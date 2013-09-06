@@ -1,3 +1,1 @@
-App.SingleReddit = Ember.Object.extend({
-
-});
+App.SingleReddit = Ember.Object.extend({});

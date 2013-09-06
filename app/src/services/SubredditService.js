@@ -28,7 +28,7 @@ App.SubredditService = Ember.Object.extend({
 
             // check our cache really fast so we don't slam reddit every time
             if (self.get('lastFetched') <= 15000) {
-                return self.get('cache');
+                return resolve(self.get('cache'));
             }
 
             // do the ajax thing as usual, but call .then() instead of .done() or .success()
@@ -63,12 +63,12 @@ App.SubredditService = Ember.Object.extend({
 
 /* to test our class above, we'll create
 a gifsReddit object, based on our service. */
-var gifsReddit = App.SubredditService.create({
-    name: 'gifs'
-});
+// var gifsReddit = App.SubredditService.create({
+//     name: 'reactiongifs'
+// });
 
 
 /* and we'll ask our service to findAll() reddits within it and return it to us as a promise.*/
-gifsReddit.findAll().then(function (items) {
-    console.log('reddits!', items);
-});
+// gifsReddit.findAll().then(function (items) {
+//     console.log('reddits!', items);
+// });
