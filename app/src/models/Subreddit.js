@@ -4,11 +4,15 @@ App.Subreddit = Ember.Object.extend({
     name: '',
     /* computed properties
         here we create a basic computed property based on the above baseUrl and postUrl, as well as the name property.
-        we return the computed property as a new property called 'url', as well as add a "hook" in ember land
-        which require the naems of the properties used in the computed property.
+        we return the computed property as a property called 'url'.
     */
     url: function () {
         return this.get('baseUrl') + this.get('name') + this.get('postUrl');
+    /*
+        when the computed property is finished being defined, we need to call .property() directly after
+        and pass in any other elements that would invalidate this computed property.
+        e.g; if baseUrl, name, or postUrl change, we need to recompute the url property.
+    */
     }.property('baseUrl', 'name', 'postUrl'),
 
 
