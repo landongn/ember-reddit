@@ -1,17 +1,9 @@
-###Why this instead of yo ember:app or ember-starter-kit?
+## Spec
 
-- this is a boilerplate specifically for me; so it's including zurb-foundation for sass, and some basic scaffolding.
-- Because.
+This basic app will read reddit's api and render reddits on the page.
 
-Clone, ```npm install``` then ```bower install``` then ```grunt server``` and go.
-
-
-/src is for any source javascript file (and handlebar templates)
-/styles are for all scss, compiled down to style.css.
-- components
-	-- _lib.scss
-		-- any component file
-
-all of the partials within /styles/components, /styles/mixins, /styles/placeholders should have a corresponding @import at in the corresponding folders _lib.scss partial. _lib.scss should also store any type-specific variables.
-
-the _settings.scss partial will / should contain font definitions, global variables, etc.
+- you should be able to change your username
+- you should be able to see a subset of reddits automatically on page load
+- you should be able to edit the subscriptions you want to see
+- you should be able to view comments of a reddit
+- you should be able to re-order the reddit lists
