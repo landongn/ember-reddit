@@ -1,6 +1,7 @@
-@import "zurb-foundation";
 @import "compass";
 @import "compass/css3";
+@import "../lib/foundation/scss/foundation";
+
 
 @import "settings";
 @import "mixins/lib";
