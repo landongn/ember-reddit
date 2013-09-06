@@ -1,7 +1,14 @@
 
+$color_blue: #121926;
+$color_lightblue: #464E5A;
+$color_cream: #F1F1CD;
+$color_slacks: #BEB9AB;
+$color_gray: #8A8381;
+
 /*
 ============ end variables ============
 */
+
 
 
 /*
@@ -12,3 +19,16 @@
 /*
 ============ end base styles ============
 */
+
+html, body {
+    background: $color_blue;
+    margin-top:20px;
+}
+
+a {
+    color:$color_cream;
+    text-decoration:none;
+}
+
+
+@import "views/base";

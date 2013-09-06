@@ -1,2 +1,17 @@
 {{! put your application level stuff here }}
-{{#linkTo 'sampleModule'}}foo{{/linkTo}}
+<section id="main">
+    <section class="navigation">
+        <nav class="primary">
+            {{#linkTo 'index'}}home{{/linkTo}}
+        </nav>
+        <nav class="secondary">
+            {{outlet secondary_navigation}}
+        </nav>
+    </section>
+
+    <section class="container">
+        {{outlet}}
+    </section>
+
+    <footer></footer>
+</section>
