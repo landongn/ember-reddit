@@ -1,12 +1,9 @@
 App.IndexRoute = Ember.Route.extend({
     model: function () {
-        App.CurrentUser.get('reddits').pushObject(
-            App.SubredditService.create({
+        var test = App.SubredditService.create({
                 name: 'hifw'
-            })
-        );
-        console.log(App.CurrentUser.get('reddits'));
-        return App.CurrentUser.allReddits();
+            });
+        return test.findAll();
     },
     setupController: function (controller, subreddit) {
         console.log(subreddit);

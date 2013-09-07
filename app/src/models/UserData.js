@@ -3,12 +3,11 @@ App.UserData = Ember.Object.extend({
     username: null,
 
     allReddits: function () {
-        var list = Ember.A();
-        var allReddits = App.CurrentUser.reddits.forEach(function(item) {
-            item.findAll().then(function(data) {
-                list.pushObject(App.SingleReddit.create(data));
-            });
+        var list = Em.A();
+        this.get('reddits').forEach(function(item) {
+            list.pushObjects(item.get('cache'));
         });
+        console.log(list);
         return list;
     }
 });
