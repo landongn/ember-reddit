@@ -3,7 +3,7 @@ we are just defining an object that will be a service layer for creating SingleR
 objects and returning them to our controllers when necessary. */
 
 App.SubredditService = Ember.Object.extend({
-    baseUrl: 'http://reddit.com/r/',
+    baseUrl: 'http://www.reddit.com/r/',
     postUrl: '/.json',
     name: null,
     /* computed properties

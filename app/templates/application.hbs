@@ -1,17 +1,20 @@
 {{! put your application level stuff here }}
 <section id="main">
     <section class="navigation">
+
         <nav class="primary">
             {{#linkTo 'index'}}home{{/linkTo}}
         </nav>
+
         <nav class="secondary">
-            {{outlet secondary_navigation}}
+             {{input type="text" action="addNewSubreddit"}}
         </nav>
+
     </section>
 
     <section class="container">
         {{outlet}}
     </section>
 
-    <footer></footer>
+    <footer>currently active subreddits: </footer>
 </section>

@@ -1,0 +1,33 @@
+#main {
+    margin:20px auto;
+    width:80%;
+    .navigation {
+        @include grid-row;
+        margin:10px;
+        .primary {
+            position:relative;
+            height:40px;
+            @include grid-column(6);
+            a {
+                @include border-radius(0 0 32px 32px);
+                height:100%;
+                padding:5px;
+                display:inline-block;
+                border:1px dashed $color_lightblue;
+                color:$color_slacks;
+                @include transition(all 250ms ease);
+                &:hover {
+                    color:$color_cream;
+                    @include transition(all 250ms ease);
+                    @include transform(rotateY(10deg), scale(1.3));
+                }
+            }
+        }
+        .secondary {
+            @include grid-column(6);
+        }
+    }
+    .container {
+        @include grid-row;
+    }
+}

@@ -1,10 +1,10 @@
 {{! index template stuff in here }}
-<h1>Welcome to Embereddit</h1>
-<section class="currentReddit">
-    {{#each}}
+<h1 {{action 'clickHeader'}}>Welcome to Embereddit</h1>
+{{#each}}
+    <section class="redditColumn">
         <article class="singleReddit">
             <h4>{{title}}</h4>
             <img {{bind-attr src='url'}} />
         </article>
-    {{/each}}
-</section>
+    </section>
+{{/each}}

@@ -23,6 +23,11 @@ $color_gray: #8A8381;
 html, body {
     background: $color_blue;
     margin-top:20px;
+    color: $color_cream;
+}
+
+section, article, h1, h2, h3, h4, h5 {
+    color: $color_cream;
 }
 
 a {
@@ -32,3 +37,4 @@ a {
 
 
 @import "views/base";
+@import "views/columns";
