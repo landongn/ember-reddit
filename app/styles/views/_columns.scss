@@ -1,3 +1,25 @@
 .redditColumn {
-    @include grid-column(4);
+    @include grid-column(12);
+    .singleReddit {
+        @include grid-row;
+        @include grid-column(12);
+        background:saturate($color_lightblue, 20%);
+        @include border-radius(20px);
+        padding:5px;
+        margin:20px;
+         h6 {
+            @include grid_column(9);
+            color:$color_cream;
+            font-size:1em;
+        }
+        img.thumbnail {
+            @include grid_column(2);
+            display:inline-block;
+        }
+        .votes {
+            @include grid-column(1);
+
+        }
+    }
+
 }

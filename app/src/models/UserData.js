@@ -1,13 +1,13 @@
 App.UserData = Ember.Object.extend({
     reddits: Ember.A(), // observable array type
     username: null,
-
     allReddits: function () {
         var list = Em.A();
         this.get('reddits').forEach(function(item) {
-            list.pushObjects(item.get('cache'));
+            item.findAll().then(function(data){
+                list.pushObjects(data);
+            });
         });
-        console.log(list);
         return list;
     }
 });

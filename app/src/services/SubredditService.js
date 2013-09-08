@@ -34,15 +34,11 @@ App.SubredditService = Ember.Object.extend({
             // do the ajax thing as usual, but call .then() instead of .done() or .success()
             $.getJSON(self.get('url') + '?jsonp=?').then(function(response) {
                 // create an ember aware array
-                var links = Em.A();
                 response.data.children.forEach(function (child) {
                     // push into the array using the emberized method pushObject
                     // while using the create() method to instantiate the ember object with the properties of the data
-                    links.pushObject(App.SingleReddit.create(child.data));
+                    self.get('cache').pushObject(App.SingleReddit.create(child.data));
                 });
-
-                // update our cache once we have populated it.
-                self.set('cache', links);
 
                 // finally, resolve the promise.
                 return resolve(self.get('cache'));

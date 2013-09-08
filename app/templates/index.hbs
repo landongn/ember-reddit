@@ -3,8 +3,16 @@
 {{#each}}
     <section class="redditColumn">
         <article class="singleReddit">
-            <h4>{{title}}</h4>
-            <img {{bind-attr src='url'}} />
+            <section class="votes">
+                <div class="up">{{ups}}</div>
+                <div class="down">{{downs}}</div>
+            </section>
+            <img class="thumbnail" {{bind-attr src='thumbnail'}} {{action 'showImage' this}} />
+            <h6>{{title}}</h6>
+            <section class="meta">
+                <div class="commentCount">there are {{num_comments}} comments.</div>
+                <div class="author">posted by: {{author}} on subreddit {{subreddit}}.</div>
+            </section>
         </article>
     </section>
 {{/each}}
