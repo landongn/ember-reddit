@@ -2,7 +2,7 @@
 and spits out each of the bits of template you define.}}
 {{#each}}
     <section class="redditColumn">
-        <article class="singleReddit">
+        <article class="singleReddit" {{action 'showFullReddit' this}}>
             <section class="votes">
                 <div class="up">{{ups}}</div>
                 <div class="down">{{downs}}</div>
