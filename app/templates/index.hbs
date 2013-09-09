@@ -1,5 +1,8 @@
 {{! index template stuff in here }}
 <h1>Welcome to Embereddit</h1>
+
+{{! each takes the value of the 'model' property, or the 'content' property (they literally are identical) of the controller, binds `this` to the current iteration
+and spits out each of the bits of template you define.}}
 {{#each}}
     <section class="redditColumn">
         <article class="singleReddit">
@@ -7,6 +10,10 @@
                 <div class="up">{{ups}}</div>
                 <div class="down">{{downs}}</div>
             </section>
+            {{! bind-attr is an ember helper that takes a controller value (in this case, thumbnail)
+            and binds it to the appropriate tag attribute.}}
+
+            {{! we are also binding an action on click of the image to the showImage controller action. see IndexController for definition.}}
             <img class="thumbnail" {{bind-attr src='thumbnail'}} {{action 'showImage' this}} />
             <h6>{{title}}</h6>
             <section class="meta">
