@@ -4,7 +4,8 @@
   "dependencies": {
     "jquery": "~1.9.1",
     "ember": "~1.0.0",
-    "jquery.transit": "~0.9.9"
+    "jquery.transit": "~0.9.9",
+    "zurb-foundation": "~4.x.x"
   },
   "devDependencies": {
     "ember-mocha-adapter": "0.1.1"

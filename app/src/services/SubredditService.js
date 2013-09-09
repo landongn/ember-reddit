@@ -23,6 +23,7 @@ App.SubredditService = Ember.Object.extend({
     // findall will return a promise for this subreddit, and eventually return an array of reddits for it.
     findAll: function () {
         var self = this;
+        this.set('cache', Ember.A());
         // create a promise with a resolve function and a reject function
         return new Ember.RSVP.Promise(function(resolve, reject) {
 
@@ -32,7 +33,7 @@ App.SubredditService = Ember.Object.extend({
             }
 
             // do the ajax thing as usual, but call .then() instead of .done() or .success()
-            $.getJSON(self.get('url') + '?jsonp=?').then(function(response) {
+            Ember.$.getJSON(self.get('url') + '?jsonp=?').then(function(response) {
                 // create an ember aware array
                 response.data.children.forEach(function (child) {
                     // push into the array using the emberized method pushObject
