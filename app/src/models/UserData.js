@@ -1,6 +1,11 @@
 App.UserData = Ember.Object.extend({
-    reddits: Ember.A(), // observable array type
+    // the Ember.A() (or Em.A()) shorthand creates a bindings aware array, rather than just a 'dumb' array.
+    reddits: Ember.A(),
     username: null,
+
+    /*
+
+    */
     allReddits: function () {
         var list = Em.A();
         this.get('reddits').forEach(function(item) {
@@ -8,7 +13,7 @@ App.UserData = Ember.Object.extend({
                 list.pushObjects(data);
             });
         });
-        return list;
+        return list.reverseObjects();
     }
 });
 

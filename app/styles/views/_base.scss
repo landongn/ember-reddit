@@ -1,7 +1,9 @@
 #main {
     margin:20px auto;
     width:80%;
+    @include grid-row;
     .navigation {
+        @include grid-column(12);
         @include grid-row;
         margin:10px;
         .primary {

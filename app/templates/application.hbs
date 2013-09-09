@@ -3,18 +3,19 @@
     <section class="navigation">
 
         <nav class="primary">
+            {{!link to the homepage via the #linkTo helper}}
             {{#linkTo 'index'}}home{{/linkTo}}
         </nav>
 
         <nav class="secondary">
-             {{input type="text" action="addNewSubreddit"}}
+            {{!bind a textbox to an action called "newSubReddit" on this templates controller. Also bind the value to a value in the controller}}
+             {{input type="text" id="addRedditBox" value=newRedditString placeholder="add a reddit e.g; 'hifw' or 'gifs' or 'funny'" action="addNewSubreddit"}}
         </nav>
 
     </section>
 
     <section class="container">
+        {{! here is where our container rendering is done via ember views.}}
         {{outlet}}
     </section>
-
-    <footer>currently active subreddits: </footer>
 </section>
