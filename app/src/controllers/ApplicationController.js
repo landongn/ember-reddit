@@ -1,6 +1,4 @@
 App.ApplicationController = Ember.ObjectController.extend({
-    //tell ember we need to 'require' the IndexController in this controller.
-    needs: ['index'],
 
     // all controller level events should be bound to a function in the actions hash.
     actions: {

@@ -1,3 +1,1 @@
-App.SubredditController = Em.ArrayController.extend({
-
-});
+App.SubredditController = Ember.ArrayController.extend({});
