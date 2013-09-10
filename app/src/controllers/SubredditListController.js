@@ -5,7 +5,7 @@ App.SubredditListController = Em.ArrayController.extend({
         },
         showFullReddit: function (details) {
             console.log("deatils: ", details);
-            this.transitionToRoute('subreddit.single', details);
+            this.transitionToRoute('subreddit.post', {subreddit: details.subreddit, id: details.id, data: details});
         }
     }
 });
