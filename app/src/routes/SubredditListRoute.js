@@ -9,8 +9,5 @@ App.SubredditListRoute = Em.Route.extend({
     },
     renderTemplate: function () {
         this.render('subredditlist');
-    },
-    willTransition: function () {
-        console.log('will transition');
     }
 });

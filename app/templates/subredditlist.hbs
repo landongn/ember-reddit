@@ -1,8 +1,9 @@
 {{! each takes the value of the 'model' property, or the 'content' property (they literally are identical) of the controller, binds `this` to the current iteration
 and spits out each of the bits of template you define.}}
+<section class="redditColumn">
 {{#each}}
     {{#view App.SubredditListView}}
-        <section class="redditColumn">
+
         <article class="singleReddit" {{action 'showFullReddit' this}}>
             <section class="votes">
                 <div class="up">{{ups}}</div>
@@ -17,9 +18,16 @@ and spits out each of the bits of template you define.}}
                 <div class="commentCount">
                     there are {{num_comments}} comments.
                 </div>
-                <div class="author">posted by: {{author}} on subreddit {{subreddit}}.</div>
             </section>
         </article>
-    </section>
+
     {{/view}}
 {{/each}}
+</section>
+
+
+<section id="modal" {{action 'hideFullReddit'}} {{bind-attr class="modalShowing"}}>
+    <section class="modalFrame">
+        <img {{bind-attr src="currentSrc"}} />
+    </section>
+</section>

@@ -3,10 +3,9 @@
     .singleReddit {
         @include grid-row;
         @include grid-column(12);
-        background:saturate($color_lightblue, 20%);
         @include border-radius(20px);
-        padding:5px;
-        margin:20px;
+        padding:25px;
+        margin:0px;
          h6 {
             @include grid_column(9);
             color:$color_cream;
@@ -18,7 +17,17 @@
         }
         .votes {
             @include grid-column(1);
-
+            padding-top:10px;
+            .up {
+                color: orangered;
+            }
+            .down {
+                color: lightblue;
+            }
+        }
+        .thumbnail {
+            width:auto;
+            height:100%;
         }
     }
 

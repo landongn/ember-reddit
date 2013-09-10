@@ -6,7 +6,6 @@ App.SubredditPostRoute = Em.Route.extend({
     setupController: function (controller, postData) {
         console.log('controller', controller);
         controller.set('content', postData);
-        console.log(postData);
     },
     renderTemplate: function () {
         this.render("subreddit-post");

@@ -4,10 +4,19 @@ App.SubredditListController = Em.ArrayController.extend({
             console.log("image for the thing", image);
         },
         showFullReddit: function (details) {
-            var the_stub = details.permalink.split('/')[5];
-            the_stub.replace("'", "");
-            the_stub.replace(" ", "_");
-            this.transitionToRoute('subreddit.post', {subreddit: details.subreddit, permalink: the_stub, post_id: details.id});
+            this.set('currentSrc', this.fixImgur(details.url));
+            this.set('modalShowing', true);
+        },
+        hideFullReddit: function () {
+            this.set('modalShowing', false);
+            this.set('currentSrc', '#');
+
         }
-    }
+    },
+    fixImgur: function (data) {
+        var baseUrl = 'http://i.imgur.com/';
+        return baseUrl + data.split('/')[data.split('/').length -1] + '.jpg';
+    },
+    modalShowing: false,
+    currentSrc: null,
 });

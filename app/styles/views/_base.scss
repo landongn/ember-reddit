@@ -32,3 +32,37 @@
         @include grid-row;
     }
 }
+
+#modal {
+    position:fixed;
+    top: 10%;
+    left: 20%;
+    bottom: 0;
+    right: 0;
+    width: 55%;
+    height: 500px;
+    @include opacity(0);
+    @include transition(all 350ms ease-in-out);
+    @include transform(rotateX(90deg));
+    background: $color_lightblue;
+    padding:20px;
+    .modalFrame {
+       margin: 0 auto;
+        text-align: center;
+        img {
+            width:50%;
+            margin:0 auto;
+        }
+    }
+    &.modal-showing {
+        top: 10%;
+        left: 20%;
+        @include transform(rotate(0deg));
+        bottom: 0;
+        right: 0;
+        width: 55%;
+        height: 500px;
+        @include opacity(1);
+        @include transition(all 350ms ease-in-out);
+    }
+}

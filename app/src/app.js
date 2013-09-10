@@ -14,9 +14,3 @@ require('src/helpers/*');
 require('src/components/*');
 require('src/router');
 
-
-App.CurrentUser = App.UserData.create({
-    username: "Anon Redditor",
-    reddits: Ember.A()
-});
-
