@@ -1,0 +1,9 @@
+<h3 {{action 'logEverything'}}>Single Post</h3>
+<section class="single-post">
+    {{#each}}
+    <h6>post by {{author}}</h6>
+    <section class="parent_post">
+        <img {{bind-attr src='url'}} />
+    </section>
+    {{/each}}
+</section>

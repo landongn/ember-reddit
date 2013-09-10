@@ -4,8 +4,10 @@ App.SubredditListController = Em.ArrayController.extend({
             console.log("image for the thing", image);
         },
         showFullReddit: function (details) {
-            console.log("deatils: ", details);
-            this.transitionToRoute('subreddit.post', {subreddit: details.subreddit, id: details.id, data: details});
+            var the_stub = details.permalink.split('/')[5];
+            the_stub.replace("'", "");
+            the_stub.replace(" ", "_");
+            this.transitionToRoute('subreddit.post', {subreddit: details.subreddit, permalink: the_stub, post_id: details.id});
         }
     }
 });

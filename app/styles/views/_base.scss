@@ -21,7 +21,6 @@
                 &:hover {
                     color:$color_cream;
                     @include transition(all 250ms ease);
-                    @include transform(rotateY(10deg), scale(1.3));
                 }
             }
         }

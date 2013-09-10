@@ -6,13 +6,14 @@ App.SinglePostService = Ember.Object.extend({
     baseUrl: 'http://www.reddit.com/r/',
     postUrl: '/.json',
     subreddit: null,
-    name: null,
+    permalink: null,
+    id: null,
     /* computed properties
         here we create a basic computed property based on the above baseUrl and postUrl, as well as the name property.
         we return the computed property as a property called 'url'.
     */
     url: function () {
-        return this.get('baseUrl') + this.get('name') + this.get('postUrl');
+        return this.get('baseUrl') + this.get('subreddit') + '/comments/' + this.get('id') + '/' + this.get('permalink') + this.get('postUrl');
     /*
         when the computed property is finished being defined, we need to call .property() directly after
         and pass in any other elements that would invalidate this computed property.
@@ -25,22 +26,29 @@ App.SinglePostService = Ember.Object.extend({
     findAll: function () {
         var self = this;
         this.set('cache', Ember.A());
+        console.log('url is', this.get('url'));
+        console.log('fetching singleposts');
         // create a promise with a resolve function and a reject function
         return new Ember.RSVP.Promise(function(resolve, reject) {
-
+            console.log('checking cache');
             // check our cache really fast so we don't slam reddit every time
-            if (self.get('lastFetched') <= 15000) {
-                return resolve(self.get('cache'));
-            }
+            console.log('cache passed');
 
             // do the ajax thing as usual, but call .then() instead of .done() or .success()
             Ember.$.getJSON(self.get('url') + '?jsonp=?').then(function(response) {
                 // create an ember aware array
-                response.data.children.forEach(function (child) {
-                    // push into the array using the emberized method pushObject
-                    // while using the create() method to instantiate the ember object with the properties of the data
-                    self.get('cache').pushObject(App.SingleReddit.create(child.data));
+                var list = Ember.A();
+                response.forEach(function (section) {
+                    section.data.children.forEach(function (data) {
+                        if (data.kind === 't3') {
+                            list.pushObject(App.SinglePost.create(data.data));
+                        } else {
+                            list.pushObject(App.Comment.create(data.data));
+                        }
+                    });
                 });
+
+                self.set('cache', list);
 
                 // finally, resolve the promise.
                 return resolve(self.get('cache'));
@@ -48,9 +56,8 @@ App.SinglePostService = Ember.Object.extend({
         });
     },
 
-    // this is our emberized array where we'll store subreddit content
     cache: Ember.A(),
-
+    // this is our emberized array where we'll store subreddit content
     // define a computed property that listens for changes to the cache property above
     // and resets its timestamp each time cache changes.
     lastFetched: function () {
