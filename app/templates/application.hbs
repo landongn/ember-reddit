@@ -4,7 +4,7 @@
 
         <nav class="primary">
             {{!link to the homepage via the #linkTo helper}}
-            {{#linkTo 'subreddit'}}home{{/linkTo}}
+            {{#linkTo 'posts'}}home{{/linkTo}}
         </nav>
 
         <nav class="secondary">
@@ -16,6 +16,11 @@
 
     <section class="container">
         {{! here is where our container rendering is done via ember views.}}
-        {{outlet}}
+        <section class="left-col">
+            {{outlet "posts"}}
+        </section>
+        <section class="right-col">
+            {{outlet "post"}}
+        </section>
     </section>
 </section>

@@ -23,3 +23,11 @@
     }
 
 }
+
+.left-col {
+    @include grid-column(4);
+}
+
+.right-col {
+    @include grid-column(8);
+}

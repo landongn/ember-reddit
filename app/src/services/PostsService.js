@@ -1,11 +1,10 @@
 /* everything we define in here is custom -- none of this is 'boilerplate' ember
-we are just defining an object that will be a service layer for creating SinglePost
+we are just defining an object that will be a service layer for creating SingleReddit
 objects and returning them to our controllers when necessary. */
 
-App.SinglePostService = Ember.Object.extend({
+App.PostsService = Ember.Object.extend({
     baseUrl: 'http://www.reddit.com/r/',
     postUrl: '/.json',
-    subreddit: null,
     name: null,
     /* computed properties
         here we create a basic computed property based on the above baseUrl and postUrl, as well as the name property.
@@ -39,7 +38,7 @@ App.SinglePostService = Ember.Object.extend({
                 response.data.children.forEach(function (child) {
                     // push into the array using the emberized method pushObject
                     // while using the create() method to instantiate the ember object with the properties of the data
-                    self.get('cache').pushObject(App.SingleReddit.create(child.data));
+                    self.get('cache').pushObject(App.Post.create(child.data));
                 });
 
                 // finally, resolve the promise.
